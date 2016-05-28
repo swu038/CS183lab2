@@ -132,7 +132,7 @@ tags: $(OBJS) entryother.S _init
 vectors.S: vectors.pl
 	perl vectors.pl > vectors.S
 
-ULIB = ulib.o usys.o printf.o umalloc.o thread.o queue.o 
+ULIB = ulib.o usys.o printf.o umalloc.o thread.o queue.o semaphore.o
 
 _%: %.o $(ULIB)
 	$(LD) $(LDFLAGS) -N -e main -Ttext 0 -o $@ $^
@@ -174,6 +174,9 @@ UPROGS=\
 	_test_q\
 	_frisbee\
 	_test_sleep\
+	_test_sema\
+	_nature\
+	_monkey\
 	_wc\
 	_zombie\
 
@@ -245,7 +248,7 @@ qemu-nox-gdb: fs.img xv6.img .gdbinit
 EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c zombie.c\
-	printf.c umalloc.c test1.c test.c test_sleep.c frisbee.c\
+	printf.c umalloc.c test1.c test.c test_sleep.c test_sema.c nature.c monkey.c frisbee.c\
 	test_q.c test_random.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
