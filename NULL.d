@@ -1,0 +1,1 @@
+NULL.o: NULL.c

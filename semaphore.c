@@ -2,8 +2,9 @@
 
 void sem_acquire(struct Semaphore *s) 
 {
-	lock_acquire(&s->lock); 
-	if( s->count-- < 0) 
+	lock_acquire(&s->lock);
+	s->count--; 
+	if( s->count < 0) 
 	{
 		add_q(&s->q, getpid()); 
 		lock_release(&s->lock); 
@@ -14,8 +15,9 @@ void sem_acquire(struct Semaphore *s)
 
 void sem_signal(struct Semaphore *s)
 { 
-	lock_acquire(&s->lock); 
-	if( s->count++ <= 0) 
+	lock_acquire(&s->lock);
+	s->count++; 
+	if( s->count <= 0) 
 	{
 		int tid = pop_q(&s->q); 
 		twakeup(tid); 
