@@ -168,7 +168,6 @@ UPROGS=\
 	_sh\
 	_stressfs\
 	_usertests\
-	_test_random\
 	_test_sleep\
 	_test_sema\
 	_nature\
@@ -180,7 +179,8 @@ UPROGS=\
 	_nature4\
 	_missionary1\
 	_missionary2\
-	_missionary3\
+	_missionary4\
+	_domMonkey\
 	_zombie\
 
 fs.img: mkfs README $(UPROGS)
@@ -252,8 +252,8 @@ EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c zombie.c\
 	printf.c umalloc.c test.c test_sleep.c test_sema.c\
-	nature.c nature1.c nature2.c nature4.c\
-	missionary.c missionary1.c missionary2.c missionary3.c NULL.c test_random.c\
+	nature.c nature1.c nature2.c nature4.c domMonkey.c\
+	missionary.c missionary1.c missionary2.c missionary4.c NULL.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
 
